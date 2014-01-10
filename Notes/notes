@@ -1,0 +1,18 @@
+1. Some users who wish to use doptlti (optional) in the latest versions of Matlab under certain operating systems may need to define:
+
+options = optimset('Display','iter');
+options.LevenbergMarquardt = 'on';
+
+(If you receive an error that LevenbergMarquardt is not defined) and supply these 'options' to doptlti. See 2.3.4 in the companion for more details.
+
+
+2. We have noticed that some of you may encounter problems when using "ltisetup" to install the LTI identification toolbox, in particular on campus computers. Note that it is not necessary to run ltisetup; this will only result in slightly reduced performance. You can proceed as follows:
+
+Unzip the toolbox folder to any convenient location
+In MATLAB run the following command addpath('<path to toolbox>'), where <path to toolbox> is the path where the toolbox is located
+This will ensure that all toolbox functions are recognized from any location (e.g. your current working folder) by MATLAB.
+
+3. Note that validation of your identified models using the autocorrelation and cross correlation functions of the residual is only valid if the residual is the one-step-ahead prediction error. See 10.5 in the book and 4.5 in the companion. If you just simulate the output of the system (A,B,C,D) and compare it to the true output, the difference may contain components due to (coloured) noise which excites certain modes of the system, causing the autocorrelation to be not white. Only the one-step-ahead predictor takes this into account by also modelling the noise.
+
+
+4. The companion manual contained some minor errors on pages 51 and 76. The online versions on Blackboard have been corrected.
